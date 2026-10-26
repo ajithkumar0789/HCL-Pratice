@@ -1,0 +1,5 @@
+## Clothing and Product Shopping Web Application
+
+Developed a web application for a clothing and product store using HTML, CSS, and JavaScript. The website displays a variety of clothing items and other products through an attractive, user-friendly interface.
+
+The application allows users to browse products, view product details and prices, and explore available items. This project helped improve our frontend development skills, responsive web design knowledge, and understanding of interactive e-commerce interfaces.

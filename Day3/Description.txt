@@ -1,0 +1,7 @@
+## Day 3: JavaScript Fundamentals and BMI Calculator
+
+On the third day, we explored JavaScript concepts and learned how to use them to develop interactive web applications. We practiced working with variables, functions, conditional statements, user inputs, and basic mathematical operations to implement application logic.
+
+As a hands-on activity, we developed a **Body Mass Index (BMI) Calculator** using HTML, CSS, and JavaScript. The application accepts the user's height and weight, calculates the BMI value, and displays the corresponding BMI category based on the result.
+
+This practical exercise helped us understand how JavaScript processes user inputs, performs calculations, and dynamically updates webpage content. Overall, the session improved our programming skills and strengthened our understanding of interactive frontend development.

@@ -1,0 +1,189 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background: #1d4ed8;
+    color: white;
+    padding: 30px 16px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+header p {
+    margin: 0;
+    color: #dbeafe;
+}
+
+main {
+    width: min(1200px, 95%);
+    margin: 28px auto;
+}
+
+.card {
+    background: white;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+}
+
+h2 {
+    color: #1d4ed8;
+    margin-top: 0;
+}
+
+h3 {
+    flex-basis: 100%;
+    margin: 5px 0;
+}
+
+input,
+select,
+button {
+    font: inherit;
+    padding: 11px 12px;
+    border-radius: 6px;
+}
+
+input,
+select {
+    border: 1px solid #cbd5e1;
+    background: white;
+    min-width: 0;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1e40af;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+form input,
+form select {
+    flex: 1 1 180px;
+}
+
+#courseSearch {
+    width: min(320px, 100%);
+    margin: 15px 5px 15px 0;
+}
+
+#sortOrder {
+    margin-right: 5px;
+}
+
+.secondary {
+    background: #64748b;
+}
+
+.danger {
+    background: #dc2626;
+}
+
+.danger:hover {
+    background: #991b1b;
+}
+
+.small-button {
+    padding: 7px 10px;
+    margin: 2px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: #eff6ff;
+    color: #1e3a8a;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+.message {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.success {
+    color: #15803d;
+}
+
+.error {
+    color: #dc2626;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 650px) {
+    main {
+        width: 96%;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    form input,
+    form select,
+    form button {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}

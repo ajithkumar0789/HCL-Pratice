@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Black Tee - Style Your Life</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Product Detail Specific Styling */
+        .main-product-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .thumbnail-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .thumbnail-img:hover, .thumbnail-img.active {
+            border-color: #facc15;
+        }
+        .size-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .size-btn:hover, .size-btn.active {
+            background: #facc15;
+            color: #000;
+            border-color: #facc15;
+        }
+        .color-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+        .color-dot:hover, .color-dot.active {
+            transform: scale(1.15);
+            border-color: #facc15;
+        }
+        .qty-box {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .qty-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .qty-input {
+            width: 40px;
+            text-align: center;
+            background: none;
+            border: none;
+            color: #facc15;
+            font-weight: 700;
+        }
+        /* ========================================================
+   FIXED BACKGROUND WITH OPACITY & SCROLL BLUR
+   ======================================================== */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+
+    /* Background image with dark tint overlay */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.7)),
+                      url("https://images.unsplash.com/photo-1570857502809-08184874388e?w=1600&auto=format&fit=crop&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* --- ADJUST BACKGROUND OPACITY HERE (0.1 to 1.0) --- */
+    opacity: 0.35;  /* <-- Change this: 0.2 is very dim, 0.5 is medium, 0.8 is bright */
+
+    transform: scale(1.04);
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    transition: filter 0.4s ease, -webkit-filter 0.4s ease, opacity 0.4s ease;
+}
+
+/* Optional: reduce opacity even more when user scrolls down */
+body.scrolled::before {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    opacity: 0.25;  /* Dims slightly more when blurred */
+}
+    </style>
+</head>
+<body><!-- Category Filter Bar -->
+    <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <button class="category-filter-btn active" onclick="filterProducts('all')">All (18)</button>
+            <button class="category-filter-btn" onclick="filterProducts('casual')">Casual</button>
+            <button class="category-filter-btn" onclick="filterProducts('outerwear')">Outerwear</button>
+            <button class="category-filter-btn" onclick="filterProducts('streetwear')">Streetwear</button>
+            <button class="category-filter-btn" onclick="filterProducts('formal')">Formal</button>
+            <button class="category-filter-btn" onclick="filterProducts('footwear')">Footwear</button>
+            <button class="category-filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+        </div>
+    </div>
+
+    <!-- Product Grid (18 Items) -->
+    <section class="container pb-5">
+        <div class="row g-4" id="productGrid">
+
+            <!-- 1. Minimalist Black Tee -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="casual">
+                <div class="product-card h-100 d-flex flex-column position-relative">
+                    <span class="badge position-absolute top-0 end-0 m-3 fw-bold">Best Seller</span>
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Minimalist Black Tee">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Minimalist Black Tee</h5>
+                            <p class="text-secondary small mb-0">100% Organic combed cotton</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$39.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Oversized Tailored Blazer -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="formal">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Oversized Tailored Blazer">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Oversized Tailored Blazer</h5>
+                            <p class="text-secondary small mb-0">Contemporary silhouette luxury cut</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$120.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Vintage Leather Jacket -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="outerwear">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Vintage Leather Jacket">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Vintage Leather Jacket</h5>
+                            <p class="text-secondary small mb-0">Full-grain finish with brass hardware</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$185.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Heavyweight Boxy Hoodie -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="streetwear">
+                <div class="product-card h-100 d-flex flex-column position-relative">
+                    <span class="badge position-absolute top-0 end-0 m-3 fw-bold">New</span>
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Heavyweight Boxy Hoodie">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Heavyweight Boxy Hoodie</h5>
+                            <p class="text-secondary small mb-0">French terry 450 GSM fleece</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$75.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Washed Denim Trucker -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="outerwear">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Washed Denim Trucker">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Washed Denim Trucker</h5>
+                            <p class="text-secondary small mb-0">14oz raw selvedge denim</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$98.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Cashmere Blend Overcoat -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="outerwear">
+                <div class="product-card h-100 d-flex flex-column position-relative">
+                    <span class="badge position-absolute top-0 end-0 m-3 fw-bold">Luxury</span>
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Cashmere Blend Overcoat">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Cashmere Blend Overcoat</h5>
+                            <p class="text-secondary small mb-0">Double-breasted Italian wool blend</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$240.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Tactical Relaxed Cargo -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="streetwear">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Tactical Relaxed Cargo">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Tactical Relaxed Cargo</h5>
+                            <p class="text-secondary small mb-0">Water-repellent ripstop fabric</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$85.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Monochrome Low Sneakers -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="footwear">
+                <div class="product-card h-100 d-flex flex-column position-relative">
+                    <span class="badge position-absolute top-0 end-0 m-3 fw-bold">Trending</span>
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Monochrome Low Sneakers">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Monochrome Low Sneakers</h5>
+                            <p class="text-secondary small mb-0">Calfskin leather with vulcanized sole</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$110.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Embroidered Twill Cap -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="accessories">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Embroidered Twill Cap">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Embroidered Twill Cap</h5>
+                            <p class="text-secondary small mb-0">Unstructured 6-panel silhouette</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$28.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Textured Linen Button-Down -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="casual">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Linen Shirt">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Textured Linen Button-Down</h5>
+                            <p class="text-secondary small mb-0">Breathable french linen camp collar</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$65.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Tailored Pleated Trousers -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="formal">
+                <div class="product-card h-100 d-flex flex-column position-relative">
+                    <span class="badge position-absolute top-0 end-0 m-3 fw-bold">New</span>
+                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Pleated Trousers">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Tailored Pleated Trousers</h5>
+                            <p class="text-secondary small mb-0">High-waist wide-leg wool blend</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$89.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Chelsea Suede Boots -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="footwear">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Chelsea Boots">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Chelsea Suede Boots</h5>
+                            <p class="text-secondary small mb-0">Water-resistant treated Italian suede</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$165.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. Minimal Leather Crossbody Bag -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="accessories">
+                <div class="product-card h-100 d-flex flex-column position-relative">
+                    <span class="badge position-absolute top-0 end-0 m-3 fw-bold">Luxury</span>
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Leather Crossbody">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Minimal Leather Crossbody</h5>
+                            <p class="text-secondary small mb-0">Full-grain pebbled leather strap</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$115.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14. Chunky Knit Turtleneck -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="casual">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Turtleneck">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Chunky Knit Turtleneck</h5>
+                            <p class="text-secondary small mb-0">Ribbed merino wool heavyweight knit</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$92.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15. Puffer Bomber Jacket -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="outerwear">
+                <div class="product-card h-100 d-flex flex-column position-relative">
+                    <span class="badge position-absolute top-0 end-0 m-3 fw-bold">Trending</span>
+                    <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Puffer Bomber">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Matte Puffer Bomber</h5>
+                            <p class="text-secondary small mb-0">Down-insulated thermal windbreaker</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$145.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16. Graphic Print Heavy Skate Tee -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="streetwear">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Graphic Tee">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Graphic Print Skate Tee</h5>
+                            <p class="text-secondary small mb-0">Vintage screenprint drop-shoulder cut</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$45.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 17. Gold-Tone Chrono Watch -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="accessories">
+                <div class="product-card h-100 d-flex flex-column position-relative">
+                    <span class="badge position-absolute top-0 end-0 m-3 fw-bold">Luxury</span>
+                    <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Chronograph Watch">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Gold Chronograph Watch</h5>
+                            <p class="text-secondary small mb-0">Japanese quartz with sapphire glass</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$195.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 18. Oxford Derby Shoes -->
+            <div class="col-lg-4 col-md-6 product-item" data-category="footwear">
+                <div class="product-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&auto=format&fit=crop&q=80" class="product-img" alt="Oxford Derby">
+                    <div class="p-3 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <h5>Classic Oxford Derby</h5>
+                            <p class="text-secondary small mb-0">Handcrafted polished calfskin</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="product-price">$150.00</span>
+                            <a href="index.html#contact" class="shop-btn py-1 px-3 fs-6">Enquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script>
+    function filterProducts(category) {
+        // Toggle active button highlight
+        document.querySelectorAll('.category-filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        // Filter items
+        const items = document.querySelectorAll('.product-item');
+        items.forEach(item => {
+            if (category === 'all' || item.getAttribute('data-category') === category) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+</script>
+</body>
+</html>

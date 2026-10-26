@@ -1,0 +1,7 @@
+## Day 2: HTML Forms, Tables, JavaScript Basics, and LeetCode Login Page
+
+On the second day, we learned about HTML forms and tables, understanding how to organize data in rows and columns and collect user information through form elements. We also explored the fundamentals of JavaScript, including basic syntax, variables, and simple programming concepts used to add functionality to web pages.
+
+As a practical activity, we created a clone of the LeetCode login page using HTML and CSS. This helped us understand webpage structure, styling, input fields, buttons, and the design of professional login interfaces.
+
+Overall, the session strengthened our understanding of HTML and CSS, introduced us to JavaScript fundamentals, and provided hands-on experience in frontend web development.

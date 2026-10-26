@@ -1,0 +1,7 @@
+## Day 5: JavaScript OOP, Asynchronous Programming, and Student Management System
+
+On the fifth day, we learned important JavaScript concepts, including Object-Oriented Programming (OOP), classes, and objects. We explored how these concepts help organize code, represent real-world entities, and improve code reusability. We also learned the fundamentals of asynchronous programming using `async` and `await` and understood how JavaScript handles time-consuming operations.
+
+As a practical activity, we developed a **Student Management System** using HTML, CSS, and JavaScript. The application allows users to add student details, view student records, search for students, and delete records. This project provided practical experience in handling user inputs, managing data, and implementing interactive webpage features.
+
+Overall, the session strengthened our understanding of JavaScript programming, introduced us to object-oriented and asynchronous concepts, and improved our frontend development skills through hands-on project development.

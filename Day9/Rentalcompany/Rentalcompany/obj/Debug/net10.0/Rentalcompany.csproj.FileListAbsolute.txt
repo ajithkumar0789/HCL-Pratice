@@ -1,0 +1,15 @@
+D:\dotnet\Rentalcompany\Rentalcompany\bin\Debug\net10.0\Rentalcompany.exe
+D:\dotnet\Rentalcompany\Rentalcompany\bin\Debug\net10.0\Rentalcompany.deps.json
+D:\dotnet\Rentalcompany\Rentalcompany\bin\Debug\net10.0\Rentalcompany.runtimeconfig.json
+D:\dotnet\Rentalcompany\Rentalcompany\bin\Debug\net10.0\Rentalcompany.dll
+D:\dotnet\Rentalcompany\Rentalcompany\bin\Debug\net10.0\Rentalcompany.pdb
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\Rentalcompany.GeneratedMSBuildEditorConfig.editorconfig
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\Rentalcompany.AssemblyInfoInputs.cache
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\Rentalcompany.AssemblyInfo.cs
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\Rentalcompany.csproj.CoreCompileInputs.cache
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\Rentalcompany.dll
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\refint\Rentalcompany.dll
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\Rentalcompany.pdb
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\Rentalcompany.genruntimeconfig.cache
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\ref\Rentalcompany.dll
+D:\dotnet\Rentalcompany\Rentalcompany\obj\Debug\net10.0\Rentalco.6CFFACC8.Up2Date

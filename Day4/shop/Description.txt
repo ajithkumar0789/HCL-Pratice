@@ -1,0 +1,7 @@
+## Day 4: JavaScript Data Structures and Bill Generator
+
+On the fourth day, we learned important JavaScript concepts, including arrays, lists, objects, and maps. We explored how these data structures help store, organize, retrieve, and manage data efficiently. We also practiced applying these concepts to solve practical programming problems.
+
+As a hands-on activity, we developed a **Bill Generator** using HTML, CSS, and JavaScript. The application allows users to enter product details, specify quantities and prices, calculate the total bill amount, and generate a neatly formatted bill.
+
+This practical exercise helped us understand user input handling, data management using JavaScript, and dynamic calculations on web pages. Overall, the session strengthened our JavaScript programming skills and improved our ability to develop interactive web applications.

@@ -1,0 +1,229 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\dotnet\\Rentalcompany\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\contracts\\bikerental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\contracts\\bikerental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\rentalcompany.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\rentalcompany.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\services\\rentalservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\services\\rentalservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\model\\rentalcontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\model\\rentalcontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\model\\rentalperiod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\model\\rentalperiod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\model\\rentalsummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\model\\rentalsummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\payments\\ipaymentprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\payments\\ipaymentprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\payments\\paymentprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\payments\\paymentprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\model\\rentalsummaryinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\model\\rentalsummaryinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\contracts\\carrental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\contracts\\carrental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\model\\renter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\model\\renter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|d:\\dotnet\\rentalcompany\\rentalcompany\\model\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{476283F4-8D45-5866-6F69-E7F8B7704BB1}|Rentalcompany\\Rentalcompany.csproj|solutionrelative:rentalcompany\\model\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RentalPeriod.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\RentalPeriod.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Model\\RentalPeriod.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\RentalPeriod.cs",
+              "RelativeToolTip": "Rentalcompany\\Model\\RentalPeriod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:17:07.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RentalSummary.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\RentalSummary.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Model\\RentalSummary.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\RentalSummary.cs",
+              "RelativeToolTip": "Rentalcompany\\Model\\RentalSummary.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:17:27.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IPaymentProcessor.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Payments\\IPaymentProcessor.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Payments\\IPaymentProcessor.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Payments\\IPaymentProcessor.cs",
+              "RelativeToolTip": "Rentalcompany\\Payments\\IPaymentProcessor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:21:24.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PaymentProcessor.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Payments\\PaymentProcessor.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Payments\\PaymentProcessor.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Payments\\PaymentProcessor.cs",
+              "RelativeToolTip": "Rentalcompany\\Payments\\PaymentProcessor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:21:44.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RentalServices.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Services\\RentalServices.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Services\\RentalServices.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Services\\RentalServices.cs",
+              "RelativeToolTip": "Rentalcompany\\Services\\RentalServices.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAUwCkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:20:35.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Rentalcompany.csproj",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Rentalcompany.csproj",
+              "RelativeDocumentMoniker": "Rentalcompany\\Rentalcompany.csproj",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Rentalcompany.csproj",
+              "RelativeToolTip": "Rentalcompany\\Rentalcompany.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-13T15:13:08.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BikeRental.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Contracts\\BikeRental.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Contracts\\BikeRental.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Contracts\\BikeRental.cs",
+              "RelativeToolTip": "Rentalcompany\\Contracts\\BikeRental.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:19:43.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RentalContract.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\RentalContract.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Model\\RentalContract.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\RentalContract.cs",
+              "RelativeToolTip": "Rentalcompany\\Model\\RentalContract.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAywBoAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:17:42.686Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RentalSummaryInfo.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\RentalSummaryInfo.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Model\\RentalSummaryInfo.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\RentalSummaryInfo.cs",
+              "RelativeToolTip": "Rentalcompany\\Model\\RentalSummaryInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T16:41:23.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Program.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Program.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Program.cs",
+              "RelativeToolTip": "Rentalcompany\\Program.cs",
+              "ViewState": "AgIAAKsBAAAAAAAAAAAuwCsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:08:56.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CarRental.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Contracts\\CarRental.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Contracts\\CarRental.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Contracts\\CarRental.cs",
+              "RelativeToolTip": "Rentalcompany\\Contracts\\CarRental.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:19:27.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Renter.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\Renter.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Model\\Renter.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\Renter.cs",
+              "RelativeToolTip": "Rentalcompany\\Model\\Renter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:16:48.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\Vehicle.cs",
+              "RelativeDocumentMoniker": "Rentalcompany\\Model\\Vehicle.cs",
+              "ToolTip": "D:\\dotnet\\Rentalcompany\\Rentalcompany\\Model\\Vehicle.cs",
+              "RelativeToolTip": "Rentalcompany\\Model\\Vehicle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:16:37.227Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

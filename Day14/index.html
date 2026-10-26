@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management API</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            padding: 30px;
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #111827, #312e81);
+            color: white;
+            padding: 24px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .operations-panel,
+        .result-panel {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 18px #0f172a0d;
+            min-width: 0;
+        }
+
+        h2 {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: #475569;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 23px 0;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1 1 150px;
+            min-width: 0;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            background: #f8fafc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: 2px solid #818cf8;
+            border-color: #6366f1;
+        }
+
+        button {
+            padding: 11px 16px;
+            border: none;
+            border-radius: 7px;
+            background: #4f46e5;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        #loadBtn {
+            width: 100%;
+            background: #0f766e;
+        }
+
+        #loadBtn:hover {
+            background: #115e59;
+        }
+
+        .result-panel {
+            position: sticky;
+            top: 20px;
+        }
+
+        .result-description {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        #output {
+            background: #0f172a;
+            color: #a7f3d0;
+            padding: 20px;
+            border-radius: 10px;
+            min-height: 350px;
+            max-height: 75vh;
+            overflow: auto;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            font-family: Consolas, monospace;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 800px) {
+            body {
+                padding: 15px;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .result-panel {
+                position: static;
+            }
+
+            h1 {
+                font-size: 23px;
+                padding: 20px;
+            }
+
+            .operations-panel,
+            .result-panel {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Product Management API</h1>
+
+    <div class="dashboard">
+
+        <section class="operations-panel">
+            <h2>API Operations</h2>
+
+            <button id="loadBtn">Load Products</button>
+
+            <hr>
+
+            <h3>Get Product</h3>
+            <form id="getForm">
+                <input type="number" id="getId"
+                    placeholder="Enter Product ID" min="1" required>
+                <button type="submit">Get Product</button>
+            </form>
+
+            <hr>
+
+            <h3>Add Product</h3>
+            <form id="addForm">
+                <input type="text" id="addName"
+                    placeholder="Product Name" required>
+                <input type="number" id="addPrice"
+                    placeholder="Price" min="0" step="0.01" required>
+                <input type="text" id="addColor"
+                    placeholder="Color" required>
+                <button type="submit">Add Product</button>
+            </form>
+
+            <hr>
+
+            <h3>Update Product</h3>
+            <form id="updateForm">
+                <input type="number" id="updateId"
+                    placeholder="Product ID" min="1" required>
+                <input type="text" id="updateName"
+                    placeholder="Product Name" required>
+                <input type="number" id="updatePrice"
+                    placeholder="Price" min="0" step="0.01" required>
+                <input type="text" id="updateColor"
+                    placeholder="Color" required>
+                <button type="submit">Update Product</button>
+            </form>
+
+            <hr>
+
+            <h3>Delete Product</h3>
+            <form id="deleteForm">
+                <input type="number" id="deleteId"
+                    placeholder="Product ID" min="1" required>
+                <button type="submit">Delete Product</button>
+            </form>
+        </section>
+
+        <section class="result-panel">
+            <h2>API Response</h2>
+            <p class="result-description">
+                API responses and error messages appear here.
+            </p>
+            <pre id="output">Waiting for API request...</pre>
+        </section>
+
+    </div>
+
+    <script>
+        const API = "https://api.restful-api.dev/objects";
+        const output = document.getElementById("output");
+
+        // Common function to call the API
+        async function apiRequest(url, options = {}) {
+            output.textContent = "Loading...";
+
+            try {
+                const response = await fetch(url, options);
+                const text = await response.text();
+
+                let data;
+                try {
+                    data = text ? JSON.parse(text) : {
+                        message: "Request completed successfully."
+                    };
+                } catch {
+                    data = text;
+                }
+
+                if (!response.ok) {
+                    throw new Error(
+                        "HTTP " + response.status + ": " +
+                        (typeof data === "string"
+                            ? data
+                            : JSON.stringify(data, null, 2))
+                    );
+                }
+
+                output.textContent = JSON.stringify(data, null, 2);
+                return data;
+
+            } catch (error) {
+                output.textContent =
+                    "Error: " + error.message +
+                    "\n\nCheck your internet connection and API URL.";
+                return null;
+            }
+        }
+
+        // GET: Load all products
+        document.getElementById("loadBtn")
+            .addEventListener("click", function () {
+                apiRequest(API);
+            });
+
+        // GET: Get one product
+        document.getElementById("getForm")
+            .addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const id = document.getElementById("getId").value;
+                apiRequest(`${API}/${encodeURIComponent(id)}`);
+            });
+
+        // POST: Add product
+        document.getElementById("addForm")
+            .addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const product = {
+                    name: document.getElementById("addName").value,
+                    data: {
+                        price: Number(
+                            document.getElementById("addPrice").value
+                        ),
+                        color: document.getElementById("addColor").value
+                    }
+                };
+
+                const result = await apiRequest(API, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(product)
+                });
+
+                if (result !== null) {
+                    this.reset();
+                }
+            });
+
+        // PUT: Update product
+        document.getElementById("updateForm")
+            .addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const id = document.getElementById("updateId").value;
+
+                const product = {
+                    name: document.getElementById("updateName").value,
+                    data: {
+                        price: Number(
+                            document.getElementById("updatePrice").value
+                        ),
+                        color: document.getElementById("updateColor").value
+                    }
+                };
+
+                const result = await apiRequest(
+                    `${API}/${encodeURIComponent(id)}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(product)
+                    }
+                );
+
+                if (result !== null) {
+                    this.reset();
+                }
+            });
+
+        // DELETE: Delete product
+        document.getElementById("deleteForm")
+            .addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const id = document.getElementById("deleteId").value;
+
+                const result = await apiRequest(
+                    `${API}/${encodeURIComponent(id)}`,
+                    { method: "DELETE" }
+                );
+
+                if (result !== null) {
+                    this.reset();
+                }
+            });
+    </script>
+
+</body>
+</html>

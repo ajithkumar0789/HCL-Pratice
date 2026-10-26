@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Training Management System</h1>
+        <p>Manage your courses, learners and enrollments</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Course Management</h2>
+
+            <input id="courseSearch" placeholder="Search by course code or title">
+            <select id="sortOrder">
+                <option value="">Default order</option>
+                <option value="asc">Fee: Low to High</option>
+                <option value="desc">Fee: High to Low</option>
+            </select>
+            <button id="searchCoursesBtn" type="button">Search</button>
+            <button id="resetCoursesBtn" type="button">Show All</button>
+
+            <form id="courseForm">
+                <h3 id="courseFormTitle">Add Course</h3>
+                <input id="courseCode" placeholder="Course code" required>
+                <input id="courseTitle" placeholder="Course title" required>
+                <input id="courseFee" type="number" min="0" step="0.01"
+                       placeholder="Fee (₹)" required>
+                <input id="courseDuration" type="number" min="1"
+                       placeholder="Duration in days" required>
+                <input id="courseSeats" type="number" min="1"
+                       placeholder="Total seats" required>
+                <button type="submit" id="courseSubmit">Add Course</button>
+                <button type="button" id="courseCancelEdit" hidden>
+                    Cancel Edit
+                </button>
+            </form>
+
+            <p id="courseMessage" class="message"></p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th><th>Course</th><th>Fee</th>
+                            <th>Duration</th><th>Seats</th><th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="courseTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Learner Management</h2>
+
+            <form id="learnerForm">
+                <h3 id="learnerFormTitle">Register Learner</h3>
+                <input id="learnerId" placeholder="Learner ID" required>
+                <input id="learnerName" placeholder="Full name" required>
+                <input id="contactNumber" placeholder="10-digit contact number"
+                       inputmode="numeric" pattern="[0-9]{10}"
+                       maxlength="10" required>
+                <input id="email" type="email" placeholder="Email address"
+                       required>
+                <button type="submit" id="learnerSubmit">Register Learner</button>
+                <button type="button" id="learnerCancelEdit" hidden>
+                    Cancel Edit
+                </button>
+            </form>
+
+            <p id="learnerMessage" class="message"></p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Name</th><th>Contact</th>
+                            <th>Email</th><th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="learnerTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Course Enrollment</h2>
+
+            <form id="enrollmentForm">
+                <input id="enrollLearnerId"
+                       placeholder="Registered learner ID" required>
+
+                <select id="courseCodeSelect" required>
+                    <option value="">Select a course</option>
+                </select>
+
+                <button type="submit">Enroll Learner</button>
+            </form>
+
+            <p id="enrollmentMessage" class="message"></p>
+        </section>
+
+        <section class="card">
+            <h2>Enrollment Records</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Learner</th><th>Course</th>
+                            <th>Base Fee</th><th>Discount</th><th>Final Fee</th>
+                            <th>Status</th><th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enrollmentTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Day 1: Introduction to Web Development
+
+On the first day, we learned the fundamentals of website development, including the basic structure and functionality of websites. We were introduced to **HTML (HyperText Markup Language)**, which is used to create the structure of web pages, and **CSS (Cascading Style Sheets)**, which is used to style and design web pages.
+
+As a practical activity, we developed a personal portfolio website using HTML and CSS. This hands-on exercise helped us understand webpage layouts, text formatting, color selection, image integration, and basic styling techniques.
+
+Overall, the session provided a strong foundation in web development and gave us practical experience in creating a simple, attractive, and well-structured website.

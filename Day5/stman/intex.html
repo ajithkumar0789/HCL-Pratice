@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+</head>
+<body>
+    <form>
+        <label>Student Management</label>
+        <input id="st" placeholder="Enter student name">
+        <!-- Added type="button" to prevent page reload -->
+        <button type="button" id="add" onclick="addStudent()">ADD</button>
+        <br><br>
+        <button type="button" id="dis" onclick="displayStudents()">Display</button>
+    </form>
+
+    <!-- Output area for the display list -->
+    <div id="output"></div>
+
+    <script src="s2.js"></script>
+</body>
+</html>
