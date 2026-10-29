@@ -20,17 +20,17 @@ public class AppDbContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Customer>()
-            .HasMany(customer => customer.BankAccounts)
-            .WithOne(account => account.Customer)
-            .HasForeignKey(account => account.CustomerId)
+            .HasMany(c => c.BankAccounts)
+            .WithOne(a => a.Customer)
+            .HasForeignKey(a => a.CustomerId)
             .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<BankAccount>()
-            .HasIndex(account => account.AccountNumber)
+            .HasIndex(a => a.AccountNumber)
             .IsUnique();
 
         modelBuilder.Entity<BankAccount>()
-            .Property(account => account.Balance)
+            .Property(a => a.Balance)
             .HasPrecision(18, 2);
     }
 }
