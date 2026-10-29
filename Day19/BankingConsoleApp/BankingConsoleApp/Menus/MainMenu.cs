@@ -1,4 +1,5 @@
-﻿namespace BankingConsoleApp.Menus;
+﻿
+namespace BankingConsoleApp.Menus;
 
 public class MainMenu
 {
