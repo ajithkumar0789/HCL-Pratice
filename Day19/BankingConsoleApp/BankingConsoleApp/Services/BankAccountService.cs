@@ -12,7 +12,7 @@ public class BankAccountService
         _repository = repository;
     }
 
-    public void AddAccount(BankAccount account)
+    public async Task AddAccountAsync(BankAccount account)
     {
         if (string.IsNullOrWhiteSpace(account.AccountNumber))
             throw new ArgumentException("Account number is required.");
@@ -20,50 +20,50 @@ public class BankAccountService
         if (account.CustomerId <= 0)
             throw new ArgumentException("A valid customer ID is required.");
 
-        _repository.Add(account);
+        await _repository.AddAsync(account);
     }
 
-    public BankAccount? GetAccountById(int accountId)
+    public async Task<BankAccount?> GetAccountByIdAsync(int accountId)
     {
         if (accountId <= 0)
             throw new ArgumentException("Account ID must be greater than zero.");
 
-        return _repository.GetById(accountId);
+        return await _repository.GetByIdAsync(accountId);
     }
 
-    public List<BankAccount> GetAllAccounts()
+    public async Task<List<BankAccount>> GetAllAccountsAsync()
     {
-        return _repository.GetAll();
+        return await _repository.GetAllAsync();
     }
 
-    public void Deposit(int accountId, decimal amount)
+    public async Task DepositAsync(int accountId, decimal amount)
     {
-        var account = GetAccountById(accountId)
+        var account = await GetAccountByIdAsync(accountId)
             ?? throw new InvalidOperationException("Account not found.");
 
         if (!account.Deposit(amount))
             throw new ArgumentException("Deposit amount must be greater than zero.");
 
-        _repository.Update(account);
+        await _repository.UpdateAsync(account);
     }
 
-    public void Withdraw(int accountId, decimal amount)
+    public async Task WithdrawAsync(int accountId, decimal amount)
     {
-        var account = GetAccountById(accountId)
+        var account = await GetAccountByIdAsync(accountId)
             ?? throw new InvalidOperationException("Account not found.");
 
         if (!account.Withdraw(amount))
             throw new ArgumentException(
                 "Invalid amount or insufficient balance.");
 
-        _repository.Update(account);
+        await _repository.UpdateAsync(account);
     }
 
-    public void DeleteAccount(int accountId)
+    public async Task DeleteAccountAsync(int accountId)
     {
         if (accountId <= 0)
             throw new ArgumentException("Account ID must be greater than zero.");
 
-        _repository.Delete(accountId);
+        await _repository.DeleteAsync(accountId);
     }
 }

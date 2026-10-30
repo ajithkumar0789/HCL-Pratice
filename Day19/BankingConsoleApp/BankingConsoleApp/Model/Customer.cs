@@ -13,4 +13,7 @@ public class Customer
 
     // One customer can have multiple bank accounts
     public List<BankAccount> BankAccounts { get; set; } = new();
+
+    // One customer can have multiple loans
+    public List<Loan> Loans { get; set; } = new();
 }

@@ -13,40 +13,42 @@ public class CustomerRepository
         _context = context;
     }
 
-    public void Add(Customer customer)
+    public async Task AddAsync(Customer customer)
     {
-        _context.Customers.Add(customer);
-        _context.SaveChanges();
+        await _context.Customers.AddAsync(customer);
+        await _context.SaveChangesAsync();
     }
 
-    public Customer? GetById(int customerId)
+    public async Task<Customer?> GetByIdAsync(int customerId)
     {
-        return _context.Customers
+        return await _context.Customers
+            .AsNoTracking()
             .Include(c => c.BankAccounts)
-            .FirstOrDefault(c => c.CustomerId == customerId);
+            .FirstOrDefaultAsync(c => c.CustomerId == customerId);
     }
 
-    public List<Customer> GetAll()
+    public async Task<List<Customer>> GetAllAsync()
     {
-        return _context.Customers
+        return await _context.Customers
+            .AsNoTracking()
             .Include(c => c.BankAccounts)
-            .ToList();
+            .ToListAsync();
     }
 
-    public void Update(Customer customer)
+    public async Task UpdateAsync(Customer customer)
     {
         _context.Customers.Update(customer);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 
-    public void Delete(int customerId)
+    public async Task DeleteAsync(int customerId)
     {
-        var customer = _context.Customers.Find(customerId);
+        var customer = await _context.Customers.FindAsync(customerId);
 
         if (customer != null)
         {
             _context.Customers.Remove(customer);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }

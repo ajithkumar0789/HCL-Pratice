@@ -11,21 +11,30 @@ public class BankAccount
 
     public decimal Balance { get; private set; }
 
-    // Foreign key
+    // Customer foreign key
     public int CustomerId { get; set; }
 
-    // Navigation property
+    // Customer navigation property
     public Customer? Customer { get; set; }
+
+    // Branch foreign key (optional)
+    public int? BranchId { get; set; }
+
+    // Branch navigation property
+    public Branch? Branch { get; set; }
+
+    // One account can have multiple transactions
+    public List<Transaction> Transactions { get; set; } = new();
+
+    public BankAccount()
+    {
+    }
 
     public BankAccount(string holder, string number)
     {
         AccountHolder = holder;
         AccountNumber = number;
         Balance = 0;
-    }
-
-    public BankAccount()
-    {
     }
 
     public bool Deposit(decimal amount)

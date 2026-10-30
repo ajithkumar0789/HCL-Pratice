@@ -13,40 +13,41 @@ public class BankAccountRepository
         _context = context;
     }
 
-    public void Add(BankAccount account)
+    public async Task AddAsync(BankAccount account)
     {
-        _context.BankAccounts.Add(account);
-        _context.SaveChanges();
+        await _context.BankAccounts.AddAsync(account);
+        await _context.SaveChangesAsync();
     }
 
-    public BankAccount? GetById(int accountId)
+    public async Task<BankAccount?> GetByIdAsync(int accountId)
     {
-        return _context.BankAccounts
+        return await _context.BankAccounts
             .Include(a => a.Customer)
-            .FirstOrDefault(a => a.BankAccountId == accountId);
+            .FirstOrDefaultAsync(a => a.BankAccountId == accountId);
     }
 
-    public List<BankAccount> GetAll()
+    public async Task<List<BankAccount>> GetAllAsync()
     {
-        return _context.BankAccounts
+        return await _context.BankAccounts
+            .AsNoTracking()
             .Include(a => a.Customer)
-            .ToList();
+            .ToListAsync();
     }
 
-    public void Update(BankAccount account)
+    public async Task UpdateAsync(BankAccount account)
     {
         _context.BankAccounts.Update(account);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 
-    public void Delete(int accountId)
+    public async Task DeleteAsync(int accountId)
     {
-        var account = _context.BankAccounts.Find(accountId);
+        var account = await _context.BankAccounts.FindAsync(accountId);
 
         if (account != null)
         {
             _context.BankAccounts.Remove(account);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }

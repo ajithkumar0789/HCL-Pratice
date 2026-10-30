@@ -12,28 +12,28 @@ public class CustomerService
         _repository = repository;
     }
 
-    public void AddCustomer(Customer customer)
+    public async Task AddCustomerAsync(Customer customer)
     {
         if (string.IsNullOrWhiteSpace(customer.FullName))
             throw new ArgumentException("Customer name is required.");
 
-        _repository.Add(customer);
+        await _repository.AddAsync(customer);
     }
 
-    public Customer? GetCustomerById(int customerId)
+    public async Task<Customer?> GetCustomerByIdAsync(int customerId)
     {
         if (customerId <= 0)
             throw new ArgumentException("Customer ID must be greater than zero.");
 
-        return _repository.GetById(customerId);
+        return await _repository.GetByIdAsync(customerId);
     }
 
-    public List<Customer> GetAllCustomers()
+    public async Task<List<Customer>> GetAllCustomersAsync()
     {
-        return _repository.GetAll();
+        return await _repository.GetAllAsync();
     }
 
-    public void UpdateCustomer(Customer customer)
+    public async Task UpdateCustomerAsync(Customer customer)
     {
         if (customer.CustomerId <= 0)
             throw new ArgumentException("A valid customer ID is required.");
@@ -41,14 +41,14 @@ public class CustomerService
         if (string.IsNullOrWhiteSpace(customer.FullName))
             throw new ArgumentException("Customer name is required.");
 
-        _repository.Update(customer);
+        await _repository.UpdateAsync(customer);
     }
 
-    public void DeleteCustomer(int customerId)
+    public async Task DeleteCustomerAsync(int customerId)
     {
         if (customerId <= 0)
             throw new ArgumentException("Customer ID must be greater than zero.");
 
-        _repository.Delete(customerId);
+        await _repository.DeleteAsync(customerId);
     }
 }
