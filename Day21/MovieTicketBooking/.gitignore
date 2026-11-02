@@ -1,0 +1,17 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build files
+**/bin/
+**/obj/
+
+# Logs
+*.log
+
+# Test results
+TestResults/
+
+# Environment secrets
+.env

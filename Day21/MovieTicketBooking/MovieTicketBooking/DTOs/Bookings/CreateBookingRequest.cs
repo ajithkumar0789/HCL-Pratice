@@ -1,0 +1,26 @@
+
+using System.ComponentModel.DataAnnotations;
+
+namespace MovieTicketBooking.DTOs.Bookings;
+
+public class CreateBookingRequest
+{
+    [Required]
+    public int ShowId { get; set; }
+
+    [Required]
+    [StringLength(100)]
+    public string CustomerName { get; set; } = string.Empty;
+
+    [Required]
+    [EmailAddress]
+    [StringLength(150)]
+    public string CustomerEmail { get; set; } = string.Empty;
+
+    [StringLength(20)]
+    public string? CustomerPhone { get; set; }
+
+    [Required]
+    [MinLength(1, ErrorMessage = "Select at least one seat.")]
+    public List<int> SeatIds { get; set; } = new();
+}
