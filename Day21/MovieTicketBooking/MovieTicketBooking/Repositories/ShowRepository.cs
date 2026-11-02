@@ -127,18 +127,32 @@ public class ShowRepository : IShowRepository
         await _context.SaveChangesAsync();
     }
 
+
     public async Task<bool> DeleteAsync(int id)
     {
-        var show = await _context.Shows.FindAsync(id);
+        var show = await _context.Shows
+            .FirstOrDefaultAsync(s => s.ShowId == id);
 
         if (show == null)
             return false;
 
+        // Get all seats belonging to this show
+        var showSeats = await _context.ShowSeats
+            .Where(ss => ss.ShowId == id)
+            .ToListAsync();
+
+        // Delete related ShowSeat records first
+        _context.ShowSeats.RemoveRange(showSeats);
+
+        // Then delete the Show
         _context.Shows.Remove(show);
+
         await _context.SaveChangesAsync();
 
         return true;
     }
+
+
 
     public async Task<bool> HasBookingsAsync(int showId)
     {
