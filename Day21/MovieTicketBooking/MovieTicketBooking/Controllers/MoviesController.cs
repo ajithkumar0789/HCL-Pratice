@@ -1,3 +1,5 @@
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieTicketBooking.DTOs.Movies;
 using MovieTicketBooking.Services.Interfaces;
@@ -16,6 +18,8 @@ public class MoviesController : ControllerBase
     }
 
     // GET: api/movies
+    // Anyone can view movies
+    [AllowAnonymous]
     [HttpGet]
     public async Task<ActionResult<List<MovieResponse>>> GetAll()
     {
@@ -24,6 +28,8 @@ public class MoviesController : ControllerBase
     }
 
     // GET: api/movies/1
+    // Anyone can view movie details
+    [AllowAnonymous]
     [HttpGet("{id:int}")]
     public async Task<ActionResult<MovieResponse>> GetById(int id)
     {
@@ -36,6 +42,8 @@ public class MoviesController : ControllerBase
     }
 
     // GET: api/movies/search?title=leo
+    // Anyone can search movies
+    [AllowAnonymous]
     [HttpGet("search")]
     public async Task<ActionResult<List<MovieResponse>>> Search(
         [FromQuery] string title)
@@ -49,6 +57,8 @@ public class MoviesController : ControllerBase
     }
 
     // POST: api/movies
+    // Only Admin can create movies
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<ActionResult<MovieResponse>> Create(
         CreateMovieRequest request)
@@ -62,6 +72,8 @@ public class MoviesController : ControllerBase
     }
 
     // PUT: api/movies/1
+    // Only Admin can update movies
+    [Authorize(Roles = "Admin")]
     [HttpPut("{id:int}")]
     public async Task<ActionResult<MovieResponse>> Update(
         int id,
@@ -76,6 +88,8 @@ public class MoviesController : ControllerBase
     }
 
     // DELETE: api/movies/1
+    // Only Admin can delete movies
+    [Authorize(Roles = "Admin")]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
@@ -86,7 +100,10 @@ public class MoviesController : ControllerBase
             if (!deleted)
                 return NotFound(new { message = "Movie not found." });
 
-            return Ok(new { message = "Movie deleted successfully." });
+            return Ok(new
+            {
+                message = "Movie deleted successfully."
+            });
         }
         catch (InvalidOperationException ex)
         {

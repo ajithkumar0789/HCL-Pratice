@@ -1,10 +1,11 @@
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using MovieTicketBooking.Models;
 
 namespace MovieTicketBooking.Data;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     public ApplicationDbContext(
         DbContextOptions<ApplicationDbContext> options)
@@ -14,19 +15,12 @@ public class ApplicationDbContext : DbContext
 
     // Database tables
     public DbSet<Movie> Movies { get; set; }
-
     public DbSet<Theatre> Theatres { get; set; }
-
     public DbSet<Screen> Screens { get; set; }
-
     public DbSet<Seat> Seats { get; set; }
-
     public DbSet<Show> Shows { get; set; }
-
     public DbSet<ShowSeat> ShowSeats { get; set; }
-
     public DbSet<Booking> Bookings { get; set; }
-
     public DbSet<BookingSeat> BookingSeats { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -71,7 +65,6 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Theatre>(entity =>
         {
             entity.ToTable("Theatres");
-
             entity.HasKey(t => t.TheatreId);
 
             entity.Property(t => t.Name)
@@ -87,7 +80,6 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Screen>(entity =>
         {
             entity.ToTable("Screens");
-
             entity.HasKey(s => s.ScreenId);
 
             entity.Property(s => s.ScreenName)
@@ -170,7 +162,6 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<ShowSeat>(entity =>
         {
             entity.ToTable("ShowSeats");
-
             entity.HasKey(s => s.ShowSeatId);
 
             entity.Property(s => s.Status)
