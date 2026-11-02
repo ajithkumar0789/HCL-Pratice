@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieTicketBooking.DTOs.Theatres;
 using MovieTicketBooking.Services.Interfaces;
@@ -16,6 +17,8 @@ public class TheatresController : ControllerBase
     }
 
     // GET: api/theatres
+    // Public access
+    [AllowAnonymous]
     [HttpGet]
     public async Task<ActionResult<List<TheatreResponse>>> GetAll()
     {
@@ -24,6 +27,8 @@ public class TheatresController : ControllerBase
     }
 
     // GET: api/theatres/1
+    // Public access
+    [AllowAnonymous]
     [HttpGet("{id:int}")]
     public async Task<ActionResult<TheatreResponse>> GetById(int id)
     {
@@ -36,6 +41,8 @@ public class TheatresController : ControllerBase
     }
 
     // POST: api/theatres
+    // Admin only
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<ActionResult<TheatreResponse>> Create(
         CreateTheatreRequest request)
@@ -49,6 +56,8 @@ public class TheatresController : ControllerBase
     }
 
     // PUT: api/theatres/1
+    // Admin only
+    [Authorize(Roles = "Admin")]
     [HttpPut("{id:int}")]
     public async Task<ActionResult<TheatreResponse>> Update(
         int id,
@@ -63,6 +72,8 @@ public class TheatresController : ControllerBase
     }
 
     // DELETE: api/theatres/1
+    // Admin only
+    [Authorize(Roles = "Admin")]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
