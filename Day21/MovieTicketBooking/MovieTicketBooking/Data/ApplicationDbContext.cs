@@ -224,6 +224,12 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
                 .WithMany(s => s.Bookings)
                 .HasForeignKey(b => b.ShowId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Booking belongs to an Identity user
+            entity.HasOne(b => b.User)
+                .WithMany()
+                .HasForeignKey(b => b.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         // BookingSeat configuration

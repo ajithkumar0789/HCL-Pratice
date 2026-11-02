@@ -1,4 +1,5 @@
-﻿namespace MovieTicketBooking.Models;
+﻿
+namespace MovieTicketBooking.Models;
 
 public class Booking
 {
@@ -7,6 +8,10 @@ public class Booking
     public string BookingReference { get; set; } = string.Empty;
 
     public int ShowId { get; set; }
+
+    // Identity user who created this booking
+    // Nullable to support existing bookings
+    public string? UserId { get; set; }
 
     public string CustomerName { get; set; } = string.Empty;
 
@@ -22,7 +27,11 @@ public class Booking
 
     public Show? Show { get; set; }
 
-    public ICollection<BookingSeat> BookingSeats { get; set; } = new List<BookingSeat>();
+    // Relationship with ASP.NET Core Identity
+    public ApplicationUser? User { get; set; }
+
+    public ICollection<BookingSeat> BookingSeats { get; set; }
+        = new List<BookingSeat>();
 }
 
 public static class BookingStatuses

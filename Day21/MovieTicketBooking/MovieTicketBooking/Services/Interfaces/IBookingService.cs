@@ -1,3 +1,4 @@
+
 using MovieTicketBooking.DTOs.Bookings;
 
 namespace MovieTicketBooking.Services.Interfaces;
@@ -5,10 +6,16 @@ namespace MovieTicketBooking.Services.Interfaces;
 public interface IBookingService
 {
     Task<BookingResponse> CreateBookingAsync(
-        CreateBookingRequest request);
+        CreateBookingRequest request,
+        string userId);
 
-    Task<BookingResponse?> GetBookingByIdAsync(int bookingId);
+    Task<BookingResponse?> GetBookingByIdAsync(
+        int bookingId,
+        string userId,
+        bool isAdmin);
 
     Task<BookingResponse?> GetBookingByReferenceAsync(
-        string bookingReference);
+        string bookingReference,
+        string userId,
+        bool isAdmin);
 }
