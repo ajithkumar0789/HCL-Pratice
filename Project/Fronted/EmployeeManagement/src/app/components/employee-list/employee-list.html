@@ -1,0 +1,82 @@
+
+<div class="container">
+
+  <h2>Employee Management</h2>
+
+  <h3>Search Employee by ID</h3>
+
+  <div class="search-box">
+    <input
+      type="number"
+      placeholder="Enter Employee ID"
+      [(ngModel)]="searchId"
+    />
+
+    <button (click)="searchEmployee()">Search</button>
+
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  @if (message) {
+    <p class="message">{{ message }}</p>
+  }
+
+  @if (searchedEmployee) {
+    <h3>Search Result</h3>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>Salary</th>
+      </tr>
+
+      <tr>
+        <td>{{ searchedEmployee.id }}</td>
+        <td>{{ searchedEmployee.name }}</td>
+        <td>{{ searchedEmployee.email }}</td>
+        <td>{{ searchedEmployee.phone }}</td>
+        <td>{{ searchedEmployee.department }}</td>
+        <td>{{ searchedEmployee.designation }}</td>
+        <td>{{ searchedEmployee.salary }}</td>
+      </tr>
+    </table>
+  }
+
+  <hr>
+
+  <h3>All Employees</h3>
+
+  @if (employees.length > 0) {
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>Salary</th>
+      </tr>
+
+      @for (employee of employees; track employee.id) {
+        <tr>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.phone }}</td>
+          <td>{{ employee.department }}</td>
+          <td>{{ employee.designation }}</td>
+          <td>{{ employee.salary }}</td>
+        </tr>
+      }
+    </table>
+  } @else {
+    <p>No employees available.</p>
+  }
+
+</div>

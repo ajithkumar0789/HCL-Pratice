@@ -1,0 +1,117 @@
+
+<div class="container">
+
+  <h2>Add New Employee</h2>
+
+  <form [formGroup]="employeeForm"
+        (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Employee Name</label>
+      <input type="text"
+             formControlName="name"
+             placeholder="Enter employee name" />
+
+      @if (employeeForm.get('name')?.touched &&
+           employeeForm.get('name')?.hasError('required')) {
+        <small class="error">Employee name is required.</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email"
+             formControlName="email"
+             placeholder="Enter email" />
+
+      @if (employeeForm.get('email')?.touched &&
+           employeeForm.get('email')?.invalid) {
+        <small class="error">
+          @if (employeeForm.get('email')?.hasError('required')) {
+            Email is required.
+          }
+          @else if (employeeForm.get('email')?.hasError('email')) {
+            Enter a valid email address.
+          }
+        </small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text"
+             formControlName="phone"
+             placeholder="Enter phone number"
+             maxlength="10" />
+
+      @if (employeeForm.get('phone')?.touched &&
+           employeeForm.get('phone')?.invalid) {
+        <small class="error">
+          @if (employeeForm.get('phone')?.hasError('required')) {
+            Phone number is required.
+          }
+          @else if (employeeForm.get('phone')?.hasError('pattern')) {
+            Phone number must start with 9 and contain exactly 10 digits.
+          }
+        </small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Department</label>
+      <select formControlName="department">
+        <option value="">Select Department</option>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+        <option value="Marketing">Marketing</option>
+      </select>
+
+      @if (employeeForm.get('department')?.touched &&
+           employeeForm.get('department')?.hasError('required')) {
+        <small class="error">Please select a department.</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Designation</label>
+      <input type="text"
+             formControlName="designation"
+             placeholder="Enter designation" />
+
+      @if (employeeForm.get('designation')?.touched &&
+           employeeForm.get('designation')?.hasError('required')) {
+        <small class="error">Designation is required.</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Salary</label>
+      <input type="number"
+             formControlName="salary"
+             placeholder="Enter salary" />
+
+      @if (employeeForm.get('salary')?.touched &&
+           employeeForm.get('salary')?.invalid) {
+        <small class="error">
+          @if (employeeForm.get('salary')?.hasError('required')) {
+            Salary is required.
+          }
+          @else if (employeeForm.get('salary')?.hasError('min')) {
+            Salary must be greater than 0.
+          }
+        </small>
+      }
+    </div>
+
+    <button type="submit" [disabled]="employeeForm.invalid">
+      Add Employee
+    </button>
+
+  </form>
+
+  @if (message) {
+    <p>{{ message }}</p>
+  }
+
+</div>
