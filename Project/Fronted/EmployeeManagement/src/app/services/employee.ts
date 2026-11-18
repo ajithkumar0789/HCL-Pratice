@@ -18,7 +18,7 @@ export class EmployeeService {
     return this.http.post<Employee>(this.apiUrl, employee);
   }
 
-  // Display all employees
+  // Get all employees
   getAllEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.apiUrl);
   }
@@ -26,5 +26,28 @@ export class EmployeeService {
   // Search employee by ID
   getEmployeeById(id: number): Observable<Employee> {
     return this.http.get<Employee>(`${this.apiUrl}/${id}`);
+  }
+
+  // Update employee salary
+  updateSalary(id: number, salary: number): Observable<Employee> {
+    return this.http.put<Employee>(
+      `${this.apiUrl}/${id}/salary`,
+      { salary }
+    );
+  }
+
+  // Update complete employee
+  updateEmployee(id: number, employee: Employee): Observable<Employee> {
+    return this.http.put<Employee>(
+      `${this.apiUrl}/${id}`,
+      employee
+    );
+  }
+
+  // Delete employee
+  deleteEmployee(id: number): Observable<string> {
+    return this.http.delete(`${this.apiUrl}/${id}`, {
+      responseType: 'text'
+    });
   }
 }

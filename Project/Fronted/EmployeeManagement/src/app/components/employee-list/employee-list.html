@@ -13,7 +13,6 @@
     />
 
     <button (click)="searchEmployee()">Search</button>
-
     <button class="clear-btn" (click)="clearSearch()">Clear</button>
   </div>
 
@@ -40,7 +39,7 @@
         <td>{{ searchedEmployee.name }}</td>
         <td>{{ searchedEmployee.email }}</td>
         <td>{{ searchedEmployee.phone }}</td>
-        <td>{{ searchedEmployee.department }}</td>
+        <td>{{ searchedEmployee.departmentName }}</td>
         <td>{{ searchedEmployee.designation }}</td>
         <td>{{ searchedEmployee.salary }}</td>
       </tr>
@@ -61,20 +60,133 @@
         <th>Department</th>
         <th>Designation</th>
         <th>Salary</th>
+        <th>Action</th>
       </tr>
 
       @for (employee of employees; track employee.id) {
         <tr>
+
           <td>{{ employee.id }}</td>
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.email }}</td>
-          <td>{{ employee.phone }}</td>
-          <td>{{ employee.department }}</td>
-          <td>{{ employee.designation }}</td>
-          <td>{{ employee.salary }}</td>
+
+          <!-- Name -->
+          <td>
+            @if (editingEmployee?.id === employee.id) {
+              <input type="text" [(ngModel)]="editingEmployee!.name">
+            } @else {
+              {{ employee.name }}
+            }
+          </td>
+
+          <!-- Email -->
+          <td>
+            @if (editingEmployee?.id === employee.id) {
+              <input type="email" [(ngModel)]="editingEmployee!.email">
+            } @else {
+              {{ employee.email }}
+            }
+          </td>
+
+          <!-- Phone -->
+          <td>
+            @if (editingEmployee?.id === employee.id) {
+              <input type="text" [(ngModel)]="editingEmployee!.phone">
+            } @else {
+              {{ employee.phone }}
+            }
+          </td>
+
+          <!-- Department -->
+          <td>
+            @if (editingEmployee?.id === employee.id) {
+              <select [(ngModel)]="editingEmployee!.departmentId">
+                <option [ngValue]="null">Select Department</option>
+
+                @for (department of departments; track department.id) {
+                  <option [ngValue]="department.id">
+                    {{ department.departmentName }}
+                  </option>
+                }
+              </select>
+            } @else {
+              {{ employee.departmentName }}
+            }
+          </td>
+
+          <!-- Designation -->
+          <td>
+            @if (editingEmployee?.id === employee.id) {
+              <input type="text" [(ngModel)]="editingEmployee!.designation">
+            } @else {
+              {{ employee.designation }}
+            }
+          </td>
+
+          <!-- Salary -->
+          <td>
+            @if (editingEmployee?.id === employee.id) {
+              <input
+                type="number"
+                [(ngModel)]="editingEmployee!.salary"
+              />
+            } @else if (editingSalaryEmployeeId === employee.id) {
+              <input
+                type="number"
+                [(ngModel)]="updatedSalary"
+              />
+            } @else {
+              {{ employee.salary }}
+            }
+          </td>
+
+          <!-- Actions -->
+          <td>
+
+            @if (editingEmployee?.id === employee.id) {
+
+              <button (click)="saveEmployee()">Save</button>
+
+              <button
+                class="clear-btn"
+                (click)="cancelEmployeeEdit()">
+                Cancel
+              </button>
+
+            } @else if (editingSalaryEmployeeId === employee.id) {
+
+              <button (click)="saveSalary(employee.id!)">
+                Save Salary
+              </button>
+
+              <button
+                class="clear-btn"
+                (click)="cancelSalary()">
+                Cancel
+              </button>
+
+            } @else {
+
+              <button (click)="editEmployee(employee)">
+                Edit Employee
+              </button>
+
+              <button (click)="editSalary(employee)">
+                Edit Salary
+              </button>
+
+              <button
+                class="clear-btn"
+                (click)="deleteEmployee(employee.id!)">
+                Delete
+              </button>
+
+            }
+
+          </td>
+
         </tr>
       }
     </table>
+
   } @else {
     <p>No employees available.</p>
   }

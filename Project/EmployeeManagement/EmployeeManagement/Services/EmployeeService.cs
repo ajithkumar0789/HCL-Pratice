@@ -29,8 +29,8 @@ namespace EmployeeManagement.API.Services
 
             await _repository.AddEmployee(employee);
 
-            // Retrieve employee with department details
-            var savedEmployee = await _repository.GetEmployeeById(employee.Id);
+            var savedEmployee =
+                await _repository.GetEmployeeById(employee.Id);
 
             return MapToDto(savedEmployee!);
         }
@@ -54,6 +54,55 @@ namespace EmployeeManagement.API.Services
             return MapToDto(employee);
         }
 
+        // Update Employee Salary
+        public async Task<EmployeeDto?> UpdateSalary(
+            int id, UpdateSalaryDto dto)
+        {
+            var updated =
+                await _repository.UpdateSalary(id, dto.Salary);
+
+            if (!updated)
+                return null;
+
+            var employee = await _repository.GetEmployeeById(id);
+
+            return employee == null ? null : MapToDto(employee);
+        }
+
+        // Update Complete Employee Details
+        public async Task<EmployeeDto?> UpdateEmployee(
+            int id, UpdateEmployeeDto dto)
+        {
+            var employee = new Employee
+            {
+                Name = dto.Name,
+                Email = dto.Email,
+                Phone = dto.Phone,
+                DepartmentId = dto.DepartmentId,
+                Designation = dto.Designation,
+                Salary = dto.Salary
+            };
+
+            var updated =
+                await _repository.UpdateEmployee(id, employee);
+
+            if (!updated)
+                return null;
+
+            var updatedEmployee =
+                await _repository.GetEmployeeById(id);
+
+            return updatedEmployee == null
+                ? null
+                : MapToDto(updatedEmployee);
+        }
+
+        // Delete Employee
+        public async Task<bool> DeleteEmployee(int id)
+        {
+            return await _repository.DeleteEmployee(id);
+        }
+
         // Convert Employee Model to Employee DTO
         private static EmployeeDto MapToDto(Employee employee)
         {
@@ -64,7 +113,8 @@ namespace EmployeeManagement.API.Services
                 Email = employee.Email,
                 Phone = employee.Phone,
                 DepartmentId = employee.DepartmentId,
-                DepartmentName = employee.Department?.DepartmentName ?? string.Empty,
+                DepartmentName =
+                    employee.Department?.DepartmentName ?? string.Empty,
                 Designation = employee.Designation,
                 Salary = employee.Salary
             };

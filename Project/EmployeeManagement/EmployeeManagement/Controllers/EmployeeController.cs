@@ -16,10 +16,9 @@ namespace EmployeeManagement.API.Controllers
             _service = service;
         }
 
-        // POST: api/Employee
+        // Add Employee
         [HttpPost]
-        public async Task<IActionResult> AddEmployee(
-            CreateEmployeeDto dto)
+        public async Task<IActionResult> AddEmployee(CreateEmployeeDto dto)
         {
             var employee = await _service.AddEmployee(dto);
 
@@ -30,7 +29,7 @@ namespace EmployeeManagement.API.Controllers
             );
         }
 
-        // GET: api/Employee
+        // Get All Employees
         [HttpGet]
         public async Task<IActionResult> GetAllEmployees()
         {
@@ -39,7 +38,7 @@ namespace EmployeeManagement.API.Controllers
             return Ok(employees);
         }
 
-        // GET: api/Employee/1
+        // Get Employee By ID
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
@@ -49,6 +48,44 @@ namespace EmployeeManagement.API.Controllers
                 return NotFound("Employee not found.");
 
             return Ok(employee);
+        }
+
+        // Update Salary
+        [HttpPut("{id:int}/salary")]
+        public async Task<IActionResult> UpdateSalary(
+            int id, UpdateSalaryDto dto)
+        {
+            var employee = await _service.UpdateSalary(id, dto);
+
+            if (employee == null)
+                return NotFound("Employee not found.");
+
+            return Ok(employee);
+        }
+
+        // Update Complete Employee
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateEmployee(
+            int id, UpdateEmployeeDto dto)
+        {
+            var employee = await _service.UpdateEmployee(id, dto);
+
+            if (employee == null)
+                return NotFound("Employee not found.");
+
+            return Ok(employee);
+        }
+
+        // Delete Employee
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteEmployee(int id)
+        {
+            var deleted = await _service.DeleteEmployee(id);
+
+            if (!deleted)
+                return NotFound("Employee not found.");
+
+            return Ok("Employee deleted successfully.");
         }
     }
 }
