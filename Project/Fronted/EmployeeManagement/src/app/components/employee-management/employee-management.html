@@ -1,16 +1,35 @@
 
 <div class="management-page">
 
-  <h1>Employee Management</h1>
+  <div class="page-header">
+    <div>
+      <h1>Employee Management</h1>
+      <p>Manage employee records and information</p>
+    </div>
 
-  <nav>
-    <a routerLink="/employees/add">Add Employee</a>
+    <a routerLink="/home" class="back-button">← Dashboard</a>
+  </div>
 
-    <a routerLink="/employees/list">Employee List</a>
+  <div class="management-nav">
+    <a routerLink="/employees/add"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">
+      + Add Employee
+    </a>
 
-    <a routerLink="/employees/search">Search Employee</a>
-  </nav>
+    <a routerLink="/employees/list"
+       routerLinkActive="active">
+      Employee List
+    </a>
 
-  <router-outlet></router-outlet>
+    <a routerLink="/employees/search"
+       routerLinkActive="active">
+      Search Employee
+    </a>
+  </div>
+
+  <div class="content-area">
+    <router-outlet></router-outlet>
+  </div>
 
 </div>

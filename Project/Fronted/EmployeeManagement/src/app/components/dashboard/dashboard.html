@@ -1,23 +1,88 @@
-<div class="dashboard">
 
-  <header class="dashboard-header">
-    <h1>Employee Management System</h1>
-  </header>
+<div class="dashboard-layout">
 
-  <section class="management-cards">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">EMS</div>
+      <div>
+        <h2>Employee</h2>
+        <span>Management System</span>
+      </div>
+    </div>
 
-    <a class="management-card" routerLink="/employees">
-      <h2>👥 Employee Management</h2>
-      <p>Manage employees</p>
-      <span>Click to Open →</span>
-    </a>
+    <p class="menu-heading">MAIN MENU</p>
 
-    <a class="management-card" routerLink="/departments">
-      <h2>🏢 Department Management</h2>
-      <p>Manage departments</p>
-      <span>Click to Open →</span>
-    </a>
+    <nav class="sidebar-menu">
+      <a routerLink="/home" routerLinkActive="active">
+        <span>⌂</span> Dashboard
+      </a>
 
-  </section>
+      <a routerLink="/employees" routerLinkActive="active">
+        <span>♙</span> Employees
+      </a>
 
+      <a routerLink="/departments" routerLinkActive="active">
+        <span>▦</span> Departments
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span class="status-dot"></span>
+      System Online
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <header class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome to Employee Management System</p>
+      </div>
+
+      <div class="admin-profile">
+        <div class="profile-icon">A</div>
+        <div>
+          <strong>Administrator</strong>
+          <span>Admin</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="welcome-section">
+      <div>
+        <h2>Welcome Back!</h2>
+        <p>Manage your employees and departments from one place.</p>
+      </div>
+      <div class="welcome-icon">EMS</div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2>Management Overview</h2>
+        <p>Choose a module to continue</p>
+      </div>
+    </section>
+
+    <section class="management-cards">
+
+      <a class="management-card employee-card" routerLink="/employees">
+        <div class="card-icon">♙</div>
+        <h3>Employee Management</h3>
+        <p>Add, view and manage employee information.</p>
+        <span class="card-link">Open Employees →</span>
+      </a>
+
+      <a class="management-card department-card" routerLink="/departments">
+        <div class="card-icon">▦</div>
+        <h3>Department Management</h3>
+        <p>Create, view and manage company departments.</p>
+        <span class="card-link">Open Departments →</span>
+      </a>
+
+    </section>
+
+  </main>
 </div>
