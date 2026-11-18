@@ -1,4 +1,5 @@
-﻿namespace EmployeeManagement.API.Models
+﻿
+namespace EmployeeManagement.API.Models
 {
     public class Department
     {
@@ -7,5 +8,9 @@
         public string DepartmentName { get; set; } = string.Empty;
 
         public string? Description { get; set; }
+
+        // One Department can have many Employees
+        public ICollection<Employee> Employees { get; set; }
+            = new List<Employee>();
     }
 }

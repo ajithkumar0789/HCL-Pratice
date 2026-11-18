@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using EmployeeManagement.API.Models;
 
 namespace EmployeeManagement.API.Data
@@ -14,5 +15,17 @@ namespace EmployeeManagement.API.Data
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Department> Departments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Employee - Department One-to-Many Relationship
+            modelBuilder.Entity<Employee>()
+                .HasOne(e => e.Department)
+                .WithMany(d => d.Employees)
+                .HasForeignKey(e => e.DepartmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

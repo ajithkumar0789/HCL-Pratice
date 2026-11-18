@@ -1,87 +1,146 @@
 
 .container {
   max-width: 1100px;
-  margin: 40px auto;
-  padding: 25px;
-  background: white;
+  margin: 25px auto;
+  padding: 30px;
+  background: #ffffff;
   color: #1e293b;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
 }
 
-h2,
+h2 {
+  color: #172554;
+  font-size: 25px;
+  margin: 0 0 10px;
+  text-align: left;
+}
+
 h3 {
-  text-align: center;
-  color: #1e293b;
-  margin-bottom: 25px;
+  color: #334155;
+  font-size: 18px;
+  margin: 25px 0 15px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background: white;
+  background: #ffffff;
 }
 
 th,
 td {
-  border: 1px solid #ddd;
-  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 16px;
   text-align: left;
-  color: #1e293b;
+  color: #334155;
+  font-size: 14px;
 }
 
 th {
-  background: #1e293b;
-  color: white;
+  background: #172554;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+tr:hover td {
+  background: #f8fafc;
 }
 
 input {
   width: 100%;
-  padding: 9px;
+  box-sizing: border-box;
+  padding: 10px 12px;
   color: #1e293b;
-  background: white;
+  background: #ffffff;
   border: 1px solid #cbd5e1;
-  border-radius: 5px;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 button {
-  padding: 8px 12px;
+  padding: 9px 14px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   color: white;
   cursor: pointer;
   margin: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
 }
 
 .edit-btn {
   background: #2563eb;
 }
 
+.edit-btn:hover {
+  background: #1d4ed8;
+}
+
 .update-btn {
   background: #16a34a;
+}
+
+.update-btn:hover {
+  background: #15803d;
 }
 
 .delete-btn {
   background: #dc2626;
 }
 
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
 .cancel-btn {
   background: #64748b;
 }
 
+.cancel-btn:hover {
+  background: #475569;
+}
+
 .success {
-  color: green;
+  color: #166534;
+  background: #dcfce7;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 15px 0;
   text-align: center;
 }
 
 .error {
-  color: red;
+  color: #b91c1c;
+  background: #fee2e2;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 15px 0;
   text-align: center;
 }
 
 .empty {
   text-align: center;
   color: #64748b;
-  padding: 20px;
+  padding: 25px;
+  background: #f8fafc;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 600px;
+  }
 }

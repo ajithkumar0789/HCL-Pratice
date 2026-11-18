@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeManagement.API.DTOs
 {
@@ -14,8 +15,10 @@ namespace EmployeeManagement.API.DTOs
         [Required]
         public string Phone { get; set; } = string.Empty;
 
+        // Foreign Key
         [Required]
-        public string Department { get; set; } = string.Empty;
+        [Range(1, int.MaxValue)]
+        public int DepartmentId { get; set; }
 
         [Required]
         public string Designation { get; set; } = string.Empty;

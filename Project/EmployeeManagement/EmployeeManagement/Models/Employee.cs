@@ -1,4 +1,5 @@
-﻿namespace EmployeeManagement.API.Models
+﻿
+namespace EmployeeManagement.API.Models
 {
     public class Employee
     {
@@ -10,7 +11,11 @@
 
         public string Phone { get; set; } = string.Empty;
 
-        public string Department { get; set; } = string.Empty;
+        // Foreign Key
+        public int DepartmentId { get; set; }
+
+        // Navigation Property
+        public Department? Department { get; set; }
 
         public string Designation { get; set; } = string.Empty;
 

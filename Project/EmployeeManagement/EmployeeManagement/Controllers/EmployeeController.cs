@@ -46,9 +46,7 @@ namespace EmployeeManagement.API.Controllers
             var employee = await _service.GetEmployeeById(id);
 
             if (employee == null)
-            {
                 return NotFound("Employee not found.");
-            }
 
             return Ok(employee);
         }

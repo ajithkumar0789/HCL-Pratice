@@ -57,21 +57,26 @@
       }
     </div>
 
-    <div class="form-group">
-      <label>Department</label>
-      <select formControlName="department">
-        <option value="">Select Department</option>
-        <option value="IT">IT</option>
-        <option value="HR">HR</option>
-        <option value="Finance">Finance</option>
-        <option value="Marketing">Marketing</option>
-      </select>
+    
+<div class="form-group">
+  <label>Department</label>
 
-      @if (employeeForm.get('department')?.touched &&
-           employeeForm.get('department')?.hasError('required')) {
-        <small class="error">Please select a department.</small>
-      }
-    </div>
+  <select formControlName="departmentId">
+    <option value="">Select Department</option>
+
+    @for (department of departments; track department.id) {
+      <option [ngValue]="department.id">
+        {{ department.departmentName }}
+      </option>
+    }
+  </select>
+
+  @if (employeeForm.get('departmentId')?.touched &&
+       employeeForm.get('departmentId')?.invalid) {
+    <small class="error">Please select a department.</small>
+  }
+</div>
+
 
     <div class="form-group">
       <label>Designation</label>

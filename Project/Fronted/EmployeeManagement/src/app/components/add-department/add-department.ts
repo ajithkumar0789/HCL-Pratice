@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -24,6 +25,9 @@ export class AddDepartmentComponent {
 
   onSubmit(): void {
 
+    this.message = '';
+    this.errorMessage = '';
+
     if (!this.departmentName.trim()) {
       this.errorMessage = 'Department name is required.';
       return;
@@ -35,21 +39,26 @@ export class AddDepartmentComponent {
     };
 
     this.departmentService.addDepartment(department).subscribe({
+
       next: () => {
+
         this.message = 'Department added successfully!';
-        this.errorMessage = '';
 
         this.departmentName = '';
         this.description = '';
 
-        this.router.navigate(['/departments-list']);
+        // Navigate to the correct department list route
+        this.router.navigate(['/departments/list']);
       },
+
       error: (error) => {
+
         this.message = '';
 
         this.errorMessage =
           error.error?.message || 'Unable to add department.';
       }
+
     });
   }
 }

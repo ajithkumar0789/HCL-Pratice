@@ -15,33 +15,59 @@ namespace EmployeeManagement.API.Services
         }
 
         // Add Employee
-        public async Task<Employee> AddEmployee(CreateEmployeeDto dto)
+        public async Task<EmployeeDto> AddEmployee(CreateEmployeeDto dto)
         {
             var employee = new Employee
             {
                 Name = dto.Name,
                 Email = dto.Email,
                 Phone = dto.Phone,
-                Department = dto.Department,
+                DepartmentId = dto.DepartmentId,
                 Designation = dto.Designation,
                 Salary = dto.Salary
             };
 
             await _repository.AddEmployee(employee);
 
-            return employee;
+            // Retrieve employee with department details
+            var savedEmployee = await _repository.GetEmployeeById(employee.Id);
+
+            return MapToDto(savedEmployee!);
         }
 
         // Display All Employees
-        public async Task<List<Employee>> GetAllEmployees()
+        public async Task<List<EmployeeDto>> GetAllEmployees()
         {
-            return await _repository.GetAllEmployees();
+            var employees = await _repository.GetAllEmployees();
+
+            return employees.Select(MapToDto).ToList();
         }
 
         // Search Employee By ID
-        public async Task<Employee?> GetEmployeeById(int id)
+        public async Task<EmployeeDto?> GetEmployeeById(int id)
         {
-            return await _repository.GetEmployeeById(id);
+            var employee = await _repository.GetEmployeeById(id);
+
+            if (employee == null)
+                return null;
+
+            return MapToDto(employee);
+        }
+
+        // Convert Employee Model to Employee DTO
+        private static EmployeeDto MapToDto(Employee employee)
+        {
+            return new EmployeeDto
+            {
+                Id = employee.Id,
+                Name = employee.Name,
+                Email = employee.Email,
+                Phone = employee.Phone,
+                DepartmentId = employee.DepartmentId,
+                DepartmentName = employee.Department?.DepartmentName ?? string.Empty,
+                Designation = employee.Designation,
+                Salary = employee.Salary
+            };
         }
     }
 }

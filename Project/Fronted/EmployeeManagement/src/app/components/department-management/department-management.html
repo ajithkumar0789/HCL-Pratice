@@ -1,14 +1,35 @@
 
 <div class="management-page">
 
-  <h1>Department Management</h1>
+  <div class="page-header">
+    <div>
+      <h1>Department Management</h1>
+      <p>Create, view and manage company departments</p>
+    </div>
 
-  <nav>
-    <a routerLink="/departments/add">Add Department</a>
+    <a routerLink="/home" class="back-button">
+      ← Dashboard
+    </a>
+  </div>
 
-    <a routerLink="/departments/list">Department List</a>
-  </nav>
+  <div class="management-nav">
 
-  <router-outlet></router-outlet>
+    <a
+      routerLink="/departments/add"
+      routerLinkActive="active">
+      + Add Department
+    </a>
+
+    <a
+      routerLink="/departments/list"
+      routerLinkActive="active">
+      Department List
+    </a>
+
+  </div>
+
+  <div class="content-area">
+    <router-outlet></router-outlet>
+  </div>
 
 </div>

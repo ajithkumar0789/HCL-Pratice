@@ -14,20 +14,27 @@ namespace EmployeeManagement.API.Repositories
             _context = context;
         }
 
+        // Add Employee
         public async Task AddEmployee(Employee employee)
         {
             await _context.Employees.AddAsync(employee);
+
             await _context.SaveChangesAsync();
         }
 
+        // Display All Employees with Department
         public async Task<List<Employee>> GetAllEmployees()
         {
-            return await _context.Employees.ToListAsync();
+            return await _context.Employees
+                .Include(e => e.Department)
+                .ToListAsync();
         }
 
+        // Search Employee By ID with Department
         public async Task<Employee?> GetEmployeeById(int id)
         {
             return await _context.Employees
+                .Include(e => e.Department)
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
     }
