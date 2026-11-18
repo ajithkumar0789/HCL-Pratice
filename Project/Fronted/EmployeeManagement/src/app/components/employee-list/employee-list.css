@@ -4,6 +4,7 @@
   margin: 40px auto;
   padding: 25px;
   background: white;
+  color: #1e293b;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
@@ -11,6 +12,7 @@
 h2, h3 {
   text-align: center;
   margin-bottom: 20px;
+  color: #1e293b;
 }
 
 .search-box {
@@ -25,6 +27,7 @@ input {
   width: 220px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  color: #1e293b;
 }
 
 button {
@@ -36,6 +39,10 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background: #1d4ed8;
+}
+
 .clear-btn {
   background: #64748b;
 }
@@ -44,6 +51,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 15px;
+  background: white;
 }
 
 th, td {
@@ -55,6 +63,11 @@ th, td {
 th {
   background: #2563eb;
   color: white;
+}
+
+td {
+  background: white;
+  color: #1e293b;
 }
 
 .message {

@@ -1,0 +1,67 @@
+
+<div class="container">
+
+  <h2>Department Management</h2>
+
+  @if (message) {
+    <p class="success">{{ message }}</p>
+  }
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <h3>All Departments</h3>
+
+  <p>Total Departments: {{ departments.length }}</p>
+
+  @if (departments.length > 0) {
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Department Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (department of departments; track department.id) {
+          <tr>
+            @if (editingId === department.id) {
+              <td>{{ department.id }}</td>
+
+              <td>
+                <input type="text" [(ngModel)]="editDepartmentName" />
+              </td>
+
+              <td>
+                <input type="text" [(ngModel)]="editDescription" />
+              </td>
+
+              <td>
+                <button class="update-btn" (click)="updateDepartment()">Save</button>
+                <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+              </td>
+            } @else {
+              <td>{{ department.id }}</td>
+              <td>{{ department.departmentName }}</td>
+              <td>{{ department.description || '-' }}</td>
+
+              <td>
+                <button class="edit-btn" (click)="editDepartment(department)">Edit</button>
+                <button class="delete-btn" (click)="deleteDepartment(department.id)">Delete</button>
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+
+  } @else {
+    <p class="empty">No departments available.</p>
+  }
+
+</div>
