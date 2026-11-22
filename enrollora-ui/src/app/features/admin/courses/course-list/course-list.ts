@@ -68,13 +68,6 @@ export class CourseListComponent implements OnInit {
     this.loadCourses();
   }
 
-  // TEST ADD COURSE BUTTON
-  testClick(): void {
-    console.log('Add Course button clicked!');
-    alert('Button is working!');
-    this.openAddModal();
-  }
-
   // Load courses
   loadCourses(): void {
 
@@ -141,14 +134,17 @@ export class CourseListComponent implements OnInit {
 
   // Add course modal
   openAddModal(): void {
-    console.log('Opening Add Course Modal');
+  console.log('Opening Add Course Modal');
 
-    this.modalMode.set('add');
-    this.editingCourseId.set(null);
-    this.form = this.blankForm();
-    this.formError.set('');
-    this.showFormModal.set(true);
-  }
+  this.modalMode.set('add');
+  this.editingCourseId.set(null);
+  this.form = this.blankForm();
+  this.formError.set('');
+
+  this.showFormModal.set(true);
+
+  console.log('Modal State:', this.showFormModal());
+}
 
   // Edit course modal
   openEditModal(course: CourseResponse): void {
@@ -185,15 +181,24 @@ export class CourseListComponent implements OnInit {
       return;
     }
 
-    if (this.form.fees < 0) {
-      this.formError.set('Fees cannot be negative.');
+    // Coerce to numbers – ngModel on type="number" can produce an empty string
+    // when the field is cleared, which passes `< 0` / `< 1` checks silently.
+    const fees = Number(this.form.fees);
+    const capacity = Number(this.form.capacity);
+
+    if (isNaN(fees) || fees < 0) {
+      this.formError.set('Fees must be a valid non-negative number.');
       return;
     }
 
-    if (this.form.capacity < 1) {
+    if (isNaN(capacity) || capacity < 1) {
       this.formError.set('Capacity must be at least 1.');
       return;
     }
+
+    // Normalise so the payload always sends actual numbers, not strings
+    this.form.fees = fees;
+    this.form.capacity = capacity;
 
     this.isSubmitting.set(true);
     this.formError.set('');
