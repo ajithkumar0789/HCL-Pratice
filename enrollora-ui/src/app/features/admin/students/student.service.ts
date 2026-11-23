@@ -64,6 +64,9 @@ export class StudentService {
     return this.http.put<StudentResponse>(`${this.apiUrl}/${id}`, studentData);
   }
 
+  addStudent(studentData: UpdateStudentRequest): Observable<StudentResponse> {
+  return this.http.post<StudentResponse>(this.apiUrl, studentData);
+}
   deleteStudent(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }

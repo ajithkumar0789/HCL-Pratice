@@ -1,0 +1,195 @@
+
+<div class="add-student-page">
+
+  <!-- Page Header -->
+  <div class="page-heading">
+    <div>
+      <h2>Add Student</h2>
+      <p>Register a new student and enter academic details.</p>
+    </div>
+
+    <button type="button" class="back-btn" (click)="goBack()">
+      ← Back to Students
+    </button>
+  </div>
+
+  <!-- Form Card -->
+  <div class="form-card">
+
+    <div class="form-heading">
+      <div class="form-icon">🎓</div>
+
+      <div>
+        <h4>Student Information</h4>
+        <p>Fill in the student details below.</p>
+      </div>
+    </div>
+
+    <hr />
+
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+      <!-- Personal Information -->
+      <h5 class="section-title">Personal Information</h5>
+
+      <div class="form-grid">
+
+        <!-- Name -->
+        <div class="form-group">
+          <label>Student Name <span>*</span></label>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            placeholder="Enter student name"
+          />
+
+          @if (studentForm.get('name')?.touched &&
+               studentForm.get('name')?.hasError('required')) {
+            <small class="error-message">
+              Student name is required.
+            </small>
+          }
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label>Email Address <span>*</span></label>
+
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="example@gmail.com"
+          />
+
+          @if (studentForm.get('email')?.touched &&
+               studentForm.get('email')?.hasError('required')) {
+            <small class="error-message">
+              Email is required.
+            </small>
+          }
+
+          @if (studentForm.get('email')?.touched &&
+               studentForm.get('email')?.hasError('email')) {
+            <small class="error-message">
+              Enter a valid email address.
+            </small>
+          }
+        </div>
+
+      </div>
+
+      <!-- Academic Information -->
+      <h5 class="section-title">Academic Information</h5>
+
+      <div class="form-grid">
+
+        <!-- Department -->
+        <div class="form-group">
+          <label>Department <span>*</span></label>
+
+          <select
+            class="form-select"
+            formControlName="department"
+          >
+            <option value="">Select Department</option>
+
+            @for (department of departments; track department) {
+              <option [value]="department">
+                {{ department }}
+              </option>
+            }
+          </select>
+
+          @if (studentForm.get('department')?.touched &&
+               studentForm.get('department')?.invalid) {
+            <small class="error-message">
+              Please select a department.
+            </small>
+          }
+        </div>
+
+        <!-- Age -->
+        <div class="form-group">
+          <label>Age <span>*</span></label>
+
+          <input
+            type="number"
+            class="form-control"
+            formControlName="age"
+            placeholder="Enter age"
+          />
+
+          @if (studentForm.get('age')?.touched &&
+               studentForm.get('age')?.invalid) {
+            <small class="error-message">
+              Enter a valid age between 16 and 100.
+            </small>
+          }
+        </div>
+
+        <!-- CGPA -->
+        <div class="form-group">
+          <label>CGPA <span>*</span></label>
+
+          <input
+            type="number"
+            class="form-control"
+            formControlName="cgpa"
+            placeholder="Enter CGPA (0 - 10)"
+            min="0"
+            max="10"
+            step="0.01"
+          />
+
+          @if (studentForm.get('cgpa')?.touched &&
+               studentForm.get('cgpa')?.invalid) {
+            <small class="error-message">
+              Enter a valid CGPA between 0 and 10.
+            </small>
+          }
+        </div>
+
+      </div>
+
+      <!-- Success Message -->
+      @if (successMessage) {
+        <div class="success-message">
+          {{ successMessage }}
+        </div>
+      }
+
+      @if (errorMessage) {
+  <div class="error-message">
+    {{ errorMessage }}
+  </div>
+}
+      <!-- Buttons -->
+      <div class="form-actions">
+
+        <button
+          type="button"
+          class="reset-btn"
+          (click)="resetForm()"
+        >
+          Reset
+        </button>
+
+        <button
+  type="submit"
+  class="submit-btn"
+  [disabled]="isSubmitting"
+>
+  {{ isSubmitting ? 'Adding Student...' : 'Add Student' }}
+</button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+x

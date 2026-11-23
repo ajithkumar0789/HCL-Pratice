@@ -868,3 +868,57 @@
     padding: 11px 17px 14px;
   }
 }
+
+/* ==========================================
+   ADD NEW STUDENT BUTTON
+========================================== */
+
+.heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.add-student-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(110deg, #7545ed, #a33df0, #ff3d81);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(117, 69, 237, 0.24);
+  transition: all 0.2s ease;
+}
+
+.add-student-btn span {
+  font-size: 22px;
+  line-height: 16px;
+}
+
+.add-student-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 20px rgba(117, 69, 237, 0.32);
+}
+
+.add-student-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+  .heading-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-student-btn {
+    width: 100%;
+  }
+}
+
