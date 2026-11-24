@@ -1,8 +1,10 @@
+
 .course-page {
   padding: 28px;
   background: #f8f7fc;
   min-height: 100vh;
   color: #29243b;
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -457,6 +459,134 @@
   place-items: center;
   font-size: 12px;
   font-weight: 800;
+}
+
+/* Add Course Modal */
+
+.course-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 50, 0.55);
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.course-modal {
+  position: relative;
+  display: block;
+  background: #fff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 500px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(30, 20, 50, 0.18);
+}
+
+.course-modal-header {
+  padding: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eeeaf4;
+}
+
+.course-modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #302942;
+}
+
+.course-modal-header p {
+  margin: 6px 0 0;
+  color: #898397;
+  font-size: 13px;
+}
+
+.course-modal-close {
+  border: none;
+  background: #f3effa;
+  color: #655579;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.course-modal-body {
+  padding: 22px;
+}
+
+.course-modal-body label {
+  display: block;
+  margin: 14px 0 7px;
+  color: #514963;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.course-modal-body input:not([type="checkbox"]) {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 13px;
+  border: 1px solid #e5e0ed;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.course-modal-body input:focus {
+  border-color: #8b5cf6;
+}
+
+.course-modal-body .course-status-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.course-modal-error {
+  padding: 10px;
+  margin-bottom: 12px;
+  background: #fff0f0;
+  color: #c24141;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.course-modal-footer {
+  padding: 18px 22px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #eeeaf4;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #f1eef6;
+  color: #625b70;
+}
+
+.btn-save {
+  background: #8b5cf6;
+  color: white;
+}
+
+.btn-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Responsive */

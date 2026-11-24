@@ -1,0 +1,148 @@
+
+<div class="profile-page">
+
+  <div class="page-header">
+    <div>
+      <span class="subtitle">STUDENT ACCOUNT</span>
+      <h1>My Profile</h1>
+      <p>View and manage your personal academic information.</p>
+    </div>
+
+    <button
+      *ngIf="profile && !isEditing"
+      class="edit-btn"
+      (click)="editProfile()"
+      type="button">
+      Edit Profile
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="message loading">
+    Loading your profile...
+  </div>
+
+  <div *ngIf="errorMessage" class="message error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="message success">
+    {{ successMessage }}
+  </div>
+
+  <section *ngIf="!isLoading && profile" class="profile-card">
+
+    <div class="profile-banner">
+      <div class="avatar">
+        {{ profile.name.charAt(0).toUpperCase() }}
+      </div>
+
+      <div>
+        <h2>{{ profile.name }}</h2>
+        <p>{{ profile.email }}</p>
+
+        <span
+          class="status"
+          [class.approved]="profile.status === 1"
+          [class.rejected]="profile.status === 2">
+          {{ statusLabel(profile.status) }}
+        </span>
+      </div>
+    </div>
+
+    <div class="section-heading">
+      <h3>Personal Information</h3>
+      <p>Your registered student details</p>
+    </div>
+
+    <form #profileForm="ngForm" (ngSubmit)="saveProfile()">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>Student ID</label>
+          <input
+            type="text"
+            [value]="profile.studentId"
+            disabled>
+        </div>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="form.name"
+            [disabled]="!isEditing"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="form.email"
+            [disabled]="!isEditing"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Department</label>
+          <input
+            type="text"
+            name="department"
+            [(ngModel)]="form.department"
+            [disabled]="!isEditing"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Age</label>
+          <input
+            type="number"
+            name="age"
+            [(ngModel)]="form.age"
+            [disabled]="!isEditing"
+            min="1"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>CGPA</label>
+          <input
+            type="number"
+            name="cgpa"
+            [(ngModel)]="form.cgpa"
+            [disabled]="!isEditing"
+            min="0"
+            max="10"
+            step="0.01"
+            required>
+        </div>
+
+      </div>
+
+      <div class="form-actions" *ngIf="isEditing">
+
+        <button
+          type="button"
+          class="cancel-btn"
+          (click)="cancelEdit()"
+          [disabled]="isSaving">
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="save-btn"
+          [disabled]="profileForm.invalid || isSaving">
+          {{ isSaving ? 'Saving...' : 'Save Changes' }}
+        </button>
+
+      </div>
+
+    </form>
+
+  </section>
+
+</div>

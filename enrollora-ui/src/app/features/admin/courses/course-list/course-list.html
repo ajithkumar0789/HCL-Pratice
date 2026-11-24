@@ -1,19 +1,32 @@
+
 <div class="course-page">
+
   <!-- Page Header -->
   <div class="page-header">
+
     <div>
       <span class="eyebrow">COURSE MANAGEMENT</span>
       <h1>Courses</h1>
       <p>Manage courses, fees, capacity and availability.</p>
     </div>
 
-    <button class="btn-add"><span>+</span> Add New Course</button>
+    <button
+      type="button"
+      class="btn-add"
+      (click)="openAddModal()">
+
+      <span>+</span> Add New Course
+
+    </button>
+
   </div>
 
   <!-- Summary Cards -->
   <div class="summary-grid">
+
     <div class="summary-card purple">
       <div class="summary-icon">📚</div>
+
       <div>
         <span>Total Courses</span>
         <h2>{{ totalRecords() }}</h2>
@@ -22,6 +35,7 @@
 
     <div class="summary-card orange">
       <div class="summary-icon">📖</div>
+
       <div>
         <span>Courses on This Page</span>
         <h2>{{ courses().length }}</h2>
@@ -30,62 +44,100 @@
 
     <div class="summary-card blue">
       <div class="summary-icon">🪑</div>
+
       <div>
         <span>Available Seats</span>
-        <h2>{{ courses().reduce((total, course) => total + course.availableSeats, 0) }}</h2>
+
+        <h2>
+          {{ courses().reduce((total, course) => total + course.availableSeats, 0) }}
+        </h2>
       </div>
     </div>
 
     <div class="summary-card green">
       <div class="summary-icon">✓</div>
+
       <div>
         <span>Active Courses</span>
-        <h2>{{ courses().filter((course) => course.isActive).length }}</h2>
+
+        <h2>
+          {{ courses().filter((course) => course.isActive).length }}
+        </h2>
       </div>
     </div>
+
   </div>
 
   <!-- Course Table -->
   <div class="table-card">
+
     <div class="table-header">
+
       <div>
         <h2>All Courses</h2>
         <p>View and manage your available courses.</p>
       </div>
 
-      <span class="record-count"> {{ totalRecords() }} courses </span>
+      <span class="record-count">
+        {{ totalRecords() }} courses
+      </span>
+
     </div>
 
     <!-- Loading -->
     @if (isLoading()) {
+
       <div class="state-message">
         <div class="loader"></div>
         <p>Loading courses...</p>
       </div>
+
     }
 
     <!-- Error -->
     @else if (errorMessage()) {
+
       <div class="state-message error-state">
+
         <span>⚠️</span>
+
         <p>{{ errorMessage() }}</p>
-        <button class="btn-retry" (click)="loadCourses()">Try Again</button>
+
+        <button
+          type="button"
+          class="btn-retry"
+          (click)="loadCourses()">
+
+          Try Again
+
+        </button>
+
       </div>
+
     }
 
     <!-- Empty -->
     @else if (courses().length === 0) {
+
       <div class="state-message empty-state">
+
         <span>📚</span>
+
         <h3>No courses found</h3>
+
         <p>There are currently no courses to display.</p>
+
       </div>
+
     }
 
     <!-- Course Data -->
     @else {
+
       <div class="table-responsive">
+
         <table class="course-table">
+
           <thead>
             <tr>
               <th>COURSE</th>
@@ -98,18 +150,29 @@
           </thead>
 
           <tbody>
+
             @for (course of courses(); track course.courseId) {
+
               <tr>
+
                 <td>
+
                   <div class="course-info">
+
                     <div class="course-avatar">
                       {{ course.courseName.charAt(0).toUpperCase() }}
                     </div>
+
                     <div>
                       <strong>{{ course.courseName }}</strong>
-                      <small>Course ID: #{{ course.courseId }}</small>
+
+                      <small>
+                        Course ID: #{{ course.courseId }}
+                      </small>
                     </div>
+
                   </div>
+
                 </td>
 
                 <td>
@@ -119,70 +182,239 @@
                 </td>
 
                 <td>
-                  <strong class="fees"> ₹{{ course.fees | number: '1.0-2' }} </strong>
+                  <strong class="fees">
+                    ₹{{ course.fees | number: '1.0-2' }}
+                  </strong>
                 </td>
 
                 <td>
+
                   <div class="enrollment-info">
-                    <strong> {{ course.enrolledCount }} / {{ course.capacity }} </strong>
+
+                    <strong>
+                      {{ course.enrolledCount }} / {{ course.capacity }}
+                    </strong>
+
                     <div class="progress-track">
+
                       <div
                         class="progress-fill"
                         [style.width.%]="
-                          course.capacity > 0 ? (course.enrolledCount / course.capacity) * 100 : 0
-                        "
-                      ></div>
+                          course.capacity > 0
+                            ? (course.enrolledCount / course.capacity) * 100
+                            : 0
+                        ">
+                      </div>
+
                     </div>
+
                   </div>
+
                 </td>
 
                 <td>
+
                   <span
                     class="seats-badge"
                     [class.low-seats]="course.availableSeats <= 5 && course.availableSeats > 0"
-                    [class.no-seats]="course.availableSeats === 0"
-                  >
+                    [class.no-seats]="course.availableSeats === 0">
+
                     {{ course.availableSeats }}
+
                   </span>
+
                 </td>
 
                 <td>
+
                   <span
                     class="status-badge"
                     [class.active]="course.isActive"
-                    [class.inactive]="!course.isActive"
-                  >
+                    [class.inactive]="!course.isActive">
+
                     <span class="status-dot"></span>
+
                     {{ course.isActive ? 'Active' : 'Inactive' }}
+
                   </span>
+
                 </td>
+
               </tr>
+
             }
+
           </tbody>
+
         </table>
+
       </div>
+
     }
 
     <!-- Pagination -->
     @if (!isLoading() && !errorMessage() && totalRecords() > 0) {
+
       <div class="pagination">
+
         <span class="pagination-info">
+
           Page {{ pageNumber() }} of {{ totalPages() }}
-          <span class="total-info">({{ totalRecords() }} courses)</span>
+
+          <span class="total-info">
+            ({{ totalRecords() }} courses)
+          </span>
+
         </span>
 
         <div class="pagination-actions">
-          <button class="page-btn" (click)="previousPage()" [disabled]="pageNumber() === 1">
+
+          <button
+            type="button"
+            class="page-btn"
+            (click)="previousPage()"
+            [disabled]="pageNumber() === 1">
+
             ← Previous
+
           </button>
 
-          <span class="current-page">{{ pageNumber() }}</span>
+          <span class="current-page">
+            {{ pageNumber() }}
+          </span>
 
-          <button class="page-btn" (click)="nextPage()" [disabled]="pageNumber() >= totalPages()">
+          <button
+            type="button"
+            class="page-btn"
+            (click)="nextPage()"
+            [disabled]="pageNumber() >= totalPages()">
+
             Next →
+
           </button>
+
         </div>
+
       </div>
+
     }
+
   </div>
+
+  <!-- Add Course Modal -->
+  @if (showFormModal()) {
+
+    <div
+      class="course-modal-backdrop"
+      (click)="closeFormModal()">
+
+      <div
+        class="course-modal"
+        (click)="$event.stopPropagation()">
+
+        <!-- Modal Header -->
+        <div class="course-modal-header">
+
+          <div>
+            <h2>Add New Course</h2>
+            <p>Enter the course details below.</p>
+          </div>
+
+          <button
+            type="button"
+            class="course-modal-close"
+            (click)="closeFormModal()">
+
+            ×
+
+          </button>
+
+        </div>
+
+        <!-- Modal Body -->
+        <div class="course-modal-body">
+
+          @if (formError()) {
+            <div class="course-modal-error">
+              {{ formError() }}
+            </div>
+          }
+
+          <label>Course Name *</label>
+
+          <input
+            type="text"
+            name="courseName"
+            [(ngModel)]="form.courseName"
+            placeholder="Enter course name">
+
+          <label>Duration *</label>
+
+          <input
+            type="text"
+            name="duration"
+            [(ngModel)]="form.duration"
+            placeholder="Example: 3 Months">
+
+          <label>Fees (₹) *</label>
+
+          <input
+            type="number"
+            name="fees"
+            [(ngModel)]="form.fees"
+            min="1"
+            placeholder="Enter course fees">
+
+          <label>Capacity *</label>
+
+          <input
+            type="number"
+            name="capacity"
+            [(ngModel)]="form.capacity"
+            min="1"
+            placeholder="Enter maximum students">
+
+          <label class="course-status-label">
+
+            <input
+              type="checkbox"
+              name="isActive"
+              [(ngModel)]="form.isActive">
+
+            Active Course
+
+          </label>
+
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="course-modal-footer">
+
+          <button
+            type="button"
+            class="btn-cancel"
+            (click)="closeFormModal()">
+
+            Cancel
+
+          </button>
+
+          <button
+            type="button"
+            class="btn-save"
+            [disabled]="isSubmitting()"
+            (click)="saveCourse()">
+
+            {{ isSubmitting() ? 'Saving...' : 'Add Course' }}
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+
 </div>

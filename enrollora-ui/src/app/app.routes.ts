@@ -21,7 +21,9 @@ export const routes: Routes = [
     canActivate: [authGuard, roleGuard],
     data: { role: 'Administrator' },
     loadComponent: () =>
-      import('./layouts/admin-layout/admin-layout').then((m) => m.AdminLayout),
+      import('./layouts/admin-layout/admin-layout').then(
+        (m) => m.AdminLayout
+      ),
     children: [
       {
         path: 'dashboard',
@@ -58,6 +60,11 @@ export const routes: Routes = [
             (m) => m.EnrollmentListComponent
           ),
       },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
     ],
   },
 
@@ -93,8 +100,15 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'profile',
+        loadComponent: () =>
+          import('./features/student/profile/student-profile').then(
+            (m) => m.StudentProfile
+          ),
+      },
+      {
         path: '',
-        redirectTo: 'courses',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
       },
     ],
