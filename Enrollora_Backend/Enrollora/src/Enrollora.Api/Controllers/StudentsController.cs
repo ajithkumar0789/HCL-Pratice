@@ -33,21 +33,6 @@ public sealed class StudentsController(IStudentService service) : ControllerBase
         return service.GetByIdAsync(id, ct);
     }
 
-    // Add student (Administrator)
-    [HttpPost]
-    [Authorize(Roles = "Administrator")]
-    public async Task<IActionResult> Add(
-        UpdateStudentRequest request,
-        CancellationToken ct)
-    {
-        var student = await service.AddAsync(request, ct);
-
-        return CreatedAtAction(
-            nameof(GetById),
-            new { id = student.StudentId },
-            student);
-    }
-
     // Get logged-in student's profile
     [HttpGet("me")]
     [Authorize(Roles = "Student")]
